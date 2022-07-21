@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def main_page():
-    candidates: list[dict]=load_candidates_from_json()
+    candidates: list[dict]=load_candidates_from_json(path)
     return render_template('list.html', candidates=candidates)
 
 # Создаем роут для вывода кандидатов по uid
@@ -36,4 +36,4 @@ def search_candidates_by_skill_page(skill_name):
     return render_template('skill.html, candidates=candidates')
 
 
-app.run(host='127.0.0.2', port=8100)
+app.run(host='127.0.0.5', port=5000)
