@@ -32,5 +32,5 @@ def get_candidates_by_skill(skill_name):
     return result_skill
 
 
-
+#123
 
