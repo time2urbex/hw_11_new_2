@@ -15,11 +15,9 @@
 
 
 {% for candidate in candidates %}
-<li> Имя кандидата: <p><a href="/candidate/<{{candidate.id}}>">{{candidate.name}}</a></p></li>
+<p><a href="/candidate/<{{candidate.id}}>">{{candidate.name}}</a></p>
 
 {% endfor %}
-</ol>
-{% endblock %}
 
 
  </body>

@@ -3,34 +3,33 @@ import json
 def load_candidates_from_json(path) -> list:
     """Загружаем файл json"""
     with open('candidates.json', 'r', encoding='utf-8') as file:
-        candidates: list[dict] = json.load(file)
-        return candidates
+        return json.load(file)
 
 
-def get_candidate_by_id(uid):
-    candidates = get_all_candidates()
-    for candidate in candidates:
-        if candidate['id'] == uid:
+def get_candidate(condidate_id: int) -> dict:
+    for candidate in load_candidates_from_json():
+        if candidate['id'] == candidate_id:
             return candidate
-    return render_template('card.html')
-
-def get_candidates_by_name(candidate_name):
-    candidates = get_all_candidates()
-    result_name = []
-    for candidate in candidates:
-        if candidate_name in candidate['name'].split(','):
-            result_name.append(candidate)
-    return result_name
 
 
-def get_candidates_by_skill(skill_name):
-    candidates = get_all_candidates()
-    result_skill = []
-    for candidate in candidates:
-        if skill_name in candidate['skills'].split(','):
-            result_skill.append(candidate)
-    return result_skill
+def get_candidates_by_name(candidate_name: str) -> list[dict]:
+
+    result = []
+    for candidate in load_candidates_from_json():
+        if candidate['name'] == candidate_name:
+            result.append(candidate)
+    return result
 
 
+def get_candidates_by_skill(skill_name:str) -> list[dict]:
 
+    result = []
+
+    for candidate in load_candidates_from_json():
+        if skill_name in candidate['skills'].lower.split(','):
+            result.append(candidate)
+    return result
+
+
+#123
 

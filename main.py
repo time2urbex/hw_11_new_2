@@ -1,10 +1,37 @@
+from flask import Flask, render_template
+from utils import load_candidates_from_json, get_candidate, get_candidates_by_name, get_candidates_by_skill
 
-from utils import load_candidates_from_json, get_candidate_by_id, get_candidates_by_name, get_candidates_by_skill
-from apps import main_code
-from flask import Flask
-
-if __name__=='__main__':
-    app.run(host='127.0.0.1', port=8000)
+app = Flask(__name__)
 
 
-main_code()
+@app.route('/')
+def main_page():
+    candidates: list[dict]=load_candidates_from_json()
+    return render_template('list.html', candidates=candidates)
+
+
+@app.route('/candidate/<int:uid>')
+def get_candidate_by_id(uid):
+    candidate: dict = get_candidate(idx)
+    if not candidate:
+            return 'Кандидат не найден'
+    render_template('card.html', candidates=candidates)
+
+
+@app.route('/search/<candidate_name>')
+def search_candidates_page(candidate_name):
+    candidates: list[dict] = get_candidates_by_name(candidate_name)
+    return render_template('search.html, candidates=candidates')
+
+@app.route('/search/<candidate_name>')
+def search_candidates_by_name_page(candidate_name):
+    candidates: list[dic] = get_candidates_by_name(candidate_name)
+    return render_template('search.html, candidates=candidates')
+
+@app.route('/skill/<skill_name>')
+def search_candidates_by_skill_page(skill_name):
+    candidates: list[dict] = get_candidates_by_skill(skill_name)
+    return render_template('skill.html, candidates=candidates')
+
+
+app.run(host='127.0.0.2', port=8100)
