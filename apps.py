@@ -7,7 +7,6 @@ def main_code():
 
     @app.route('/')
     def page_main():
-
         result: load_candidates_from_json(path)
         return render_template('list.html')
 
@@ -21,7 +20,12 @@ def main_code():
         return render_template('skill.html')
 
     @app.route('/search/<candidate_name>')
-
+    def get_candidate_by_id(uid):
+        candidates = get_all_candidates()
+        for candidate in candidates:
+            if candidate['name'] == uid:
+                return candidate
+        return render_template('card.html')
 
 
     @app.route('/skill/<skill_name>')
@@ -33,4 +37,3 @@ def main_code():
         return render_template('skill.html')
 
     pass
-
