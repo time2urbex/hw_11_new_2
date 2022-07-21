@@ -1,22 +1,10 @@
-from flask import Flask, request, render_template
 
-app = Flask(__name__)
+from utils import load_candidates_from_json, get_candidate_by_id, get_candidates_by_name, get_candidates_by_skill
+from apps import main_code
+from flask import Flask
 
-@app.route("/hello/, ")
-def page_hello():
-    return "Привет"
-
-@app.route("/goodbye/, ")
-def page_goodbye():
-    return "Пока"
-
-@app.route("/seeyou/, ")
-def page_seeyou():
-    return "Увидимся"
-
-@app.route("/profile/, ")
-def page_profile():
-    return "Профиль пользователя"
+if __name__=='__main__':
+    app.run(host='127.0.0.1', port=8000)
 
 
-app.run(host='127.0.0.2', port=8000)
+main_code()
