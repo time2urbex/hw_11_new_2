@@ -7,33 +7,39 @@ app = Flask(__name__)
 
 @app.route('/')
 def main_page():
-    candidates: list[dict]=load_candidates_from_json(path)
+    candidates: list[dict] = load_candidates_from_json()
     return render_template('list.html', candidates=candidates)
 
 # Создаем роут для вывода кандидатов по uid
 
-@app.route('/candidate/<int:uid>')
-def get_candidate_by_id(uid):
-    candidate: dict = get_candidate(idx)
+@app.route('/candidate/<int:idx>')
+def candidates_page(idx):
+    candidates: dict = get_candidate()
     if not candidate:
-            return 'Кандидат не найден'
-    render_template('card.html', candidates=candidates)
-
-# Создаем роут для поиска каддата по имени
+        return 'Кандидат не найден'
+    render_template('card.html', candidate=candidate)
 
 
 @app.route('/search/<candidate_name>')
 def search_candidates_page(candidate_name):
     candidates: list[dict] = get_candidates_by_name(candidate_name)
-    return render_template('search.html, candidates=candidates')
+    return render_template('search.html', candidate=candidates)
 
 # Создаем роут для поиска каддата по имени
+
+
+@app.route('/search/<candidate_name>')
+def search_candidates_page_by_name(candidate_name):
+    candidates: list[dict] = get_candidates_by_name(candidate_name)
+    return render_template('search.html, candidates=candidates')
+
+# Создаем роут для поиска каддата по скилу
 
 
 @app.route('/skill/<skill_name>')
 def search_candidates_by_skill_page(skill_name):
     candidates: list[dict] = get_candidates_by_skill(skill_name)
-    return render_template('skill.html, candidates=candidates')
+    return render_template('skill.html, skill=skill_name, candidates=candidates')
 
 
-app.run(host='127.0.0.5', port=5000)
+app.run()
