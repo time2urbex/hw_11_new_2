@@ -3,7 +3,7 @@ import logging
 from flask import Flask, request, render_template
 
 # add filemode="w" to overwrite
-logging.basicConfig(filename="basic.log")
+logging.basicConfig(filename="../basic.log")
 
 app = Flask(__name__)
 
