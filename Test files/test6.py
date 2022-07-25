@@ -22,4 +22,4 @@ def page_cat(cat):
     logging.info(f"Страница категории {cat} запрошена")
     return f"Страница категории {cat} "
 
-app.run()
+app.run(port=4200)
