@@ -9,11 +9,10 @@
  <body>
 
 
-
  <h1>Найдено со скиллом <{{skill_name}}> : <{{len(candidate.id)}}></h2>
 
 {% for candidate in candidates %}
- <p><a href="/candidate/<{{candidate.id}}>">{{candidate.name}}</a></p>
+ <p><a href="/candidate/{{candidate.id}}">{{candidate.name}}</a></p>
 
 {% endfor %}
 
