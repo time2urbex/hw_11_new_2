@@ -7,7 +7,7 @@ def load_candidates_from_json() -> list[dict]:
 
 
 
-def get_candidate(condidate_id: int) -> dict:
+def get_candidate(candidate_id: int) -> dict:
     """перебираем кандидатов по id"""
     for candidate in load_candidates_from_json():
         if candidate['id'] == candidate_id:

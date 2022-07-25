@@ -14,8 +14,8 @@ def main_page():
 
 @app.route('/candidate/<int:idx>')
 def candidates_page(idx):
-    candidates: dict = get_candidate()
-    if not candidate:
+    candidates: dict = get_candidate(idx)
+    if no candidate:
         return 'Кандидат не найден'
     render_template('card.html', candidate=candidate)
 
