@@ -17,7 +17,7 @@ def candidates_page(idx):
     candidate: dict = get_candidate(idx)
     if not candidate:
         return 'Кандидат не найден'
-    render_template('card.html', candidate=candidate)
+    return render_template('card.html', candidate=candidate)
 
 
 @app.route('/search/<candidate_name>')
@@ -25,7 +25,7 @@ def search_candidates_page(candidate_name):
     candidates: list[dict] = get_candidates_by_name(candidate_name)
     return render_template('search.html', candidates=candidates)
 
-# Создаем роут для поиска каддата по имени
+# Создаем роут для поиска кандидата по имени
 
 
 @app.route('/search/<candidate_name>')
@@ -42,4 +42,4 @@ def search_candidates_by_skill_page(skill_name):
     return render_template('skill.html', skill=skill_name, candidates=candidates)
 
 
-app.run(port=2100)
+app.run(port=2110)

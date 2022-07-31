@@ -31,6 +31,3 @@ def get_candidates_by_skill(skill_name:str) -> list[dict]:
             result.append(candidate)
     return result
 
-
-#123
-
