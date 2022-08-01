@@ -27,7 +27,7 @@ def get_candidates_by_skill(skill_name: str) -> list[dict]:
     """Перебираем кандидатов по скиллу"""
     result = []
     for candidate in load_candidates_from_json():
-        if skill_name in candidate['skills'].lower.split(', '):
+        if skill_name in candidate['skills'].lower():
             result.append(candidate)
     return result
 

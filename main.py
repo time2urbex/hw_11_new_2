@@ -44,4 +44,4 @@ def search_candidates_by_skill_page(skill_name):
     return render_template("skill.html", skill_name=skill_name, candidates=candidates)
 
 if __name__ == '__main__':
-    app.run(port=2111)
+    app.run(port=2112)
