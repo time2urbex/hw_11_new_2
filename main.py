@@ -38,8 +38,10 @@ def search_candidates_page_by_name(candidate_name):
 
 @app.route('/skill/<skill_name>')
 def search_candidates_by_skill_page(skill_name):
-    candidates: list[dict] = get_candidates_by_skill(skill_name)
-    return render_template('skill.html', skill=skill_name, candidates=candidates)
+    candidates = get_candidates_by_skill(skill_name)
+    if not candidates:
+        return 'Нет кандидатов с такими скиллами'
+    return render_template("skill.html", skill_name=skill_name, candidates=candidates)
 
-
-app.run(port=2110)
+if __name__ == '__main__':
+    app.run(port=2111)

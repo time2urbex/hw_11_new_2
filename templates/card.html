@@ -1,24 +1,15 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Пример веб-страницы</title>
- </head>
- <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Кандидат</title>
+</head>
+<body>
 
-{% for candidate in candidates %}
-<li><p> Имя кандидата: <h1><a href="/candidate/{{candidate.id}}">{{candidate.name}}</a></p></h1></li>
-<li><p> Позиция кандидата: <p><a href="/candidate/{{candidate.id}}">">{{candidate.id}}</a></p></li>
-<li><p><img src="/candidate/{{candidate.id}}" width=200/></p></li>
-<li><p> Навыки кандидата: {{candidate.skills}}</p></li>
+    <h1>{{ candidate.name }}</h1>
+    <p>{{ candidate.position }}</p>
+    <img src="{{ candidate.picture }}" width=200/>
+    <p>{{ candidate.skills }}</p>
 
-{% endfor %}
-
-
-
-
-
-
-
- </body>
+</body>
 </html>

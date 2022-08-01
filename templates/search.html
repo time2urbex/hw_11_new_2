@@ -1,27 +1,15 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Пример веб-страницы</title>
- </head>
- <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск кандидатов по имени</title>
+</head>
+<body>
 
-
-<h1>Найдено кандидатов:  {{candidates.lenth}} </h1>
-
-
+<h1>Найдено кандидатов {{ candidates|length }}</h1>
 {% for candidate in candidates %}
-<p><h1><a href="/candidate/{{candidate.id}}">{{candidate.name}}</a></h1></p>
-
+    <p><a href="/candidate/{{ candidate.id }}">{{ candidate.name }}</a></p>
 {% endfor %}
 
-
- </body>
+</body>
 </html>
-
-
-
-
-
-
-
